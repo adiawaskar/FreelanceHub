@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 import brcypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 const Schema = mongoose.Schema;
 
 const AttachmentSchema = new Schema({
-  file_name: { type: String, required: true },
   file_url: { type: String, required: true }  // URL from Cloudinary
 });
 
@@ -42,15 +42,18 @@ const ProposalSchema = new Schema({
 });
 
 const freelancerSchema = new Schema({
-  name: { type: String, required: true },
-  email: { type: String, required: true , unique: true},
+  name: { type: String, required: true, index: true },
+  email: { type: String, required: true , unique: true, index: true},
   password: { type: String, required: true },
   phone: { type: String, required: true },
+  profile_image: { type: String, required: true},
   profile_visibility: { type: String, enum: ['Public', 'Private'], required: true },
   skills: { type: [String], required: true },
+  resume: [AttachmentSchema],
   certifications: [CertificationSchema],
   portfolio: [PortfolioSchema],
-  proposals: [ProposalSchema]
+  proposals: [ProposalSchema],
+  refreshToken: { type: String }
 }, {timestamps: true});
 
 freelancerSchema.pre("save", async function (next) {
@@ -60,8 +63,37 @@ freelancerSchema.pre("save", async function (next) {
     next();
 })
 
+freelancerSchema.methods.isPasswordCorrect = async function (password) {
+    return await brcypt.compare(password, this.password);
+}
+
+freelancerSchema.methods.generateAccessToken = function() {
+  return jwt.sign(
+      {
+          _id: this.id,
+          email: this.email,
+          name: this.name
+      },
+      process.env.ACCESS_TOKEN_SECRET,
+      {
+        expiresIn: process.env.ACCESS_TOKEN_EXPIRY
+      }
+  )
+}
+
+freelancerSchema.methods.generateRefreshToken = function() {
+  return jwt.sign(
+      {
+          _id: this.id
+      },
+      process.env.REFRESH_TOKEN_SECRET,
+      {
+        expiresIn: process.env.REFRESH_TOKEN_EXPIRY
+      }
+  )
+}
+
 export const Freelancer = mongoose.model('Freelancer', freelancerSchema);
 
-//Tokens have to be seem
-//Comparison of passowrds function
-//timestamps for Schema other than freeLancerSchema have to be checked
+// _id: true for other Schemas than freeLancerSchema will have to be checked.
+//timestamps for Schema other than freeLancerSchema have to be checked.
