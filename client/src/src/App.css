@@ -1,0 +1,19 @@
+.dashboard--background{
+  background-image: url(../public/bg10.jpg);
+}
+.dashboard {
+  display: flex;
+  gap: 20px;
+  background-image: url(../public/bg10.jpg);
+}
+
+.dashboard--content {
+  background: #ffffff;
+  flex: 1;
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  
+}
