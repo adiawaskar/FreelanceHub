@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 import Features from './components/Features';
 import FAQs from './components/FAQs';
 import Testimonial from './components/Testimonial'
-// import Gal from './components/gal'
+import Gal from './components/gal'
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
       <HeroSection />
       <About />
       {/* <Services /> */}
-      {/* <Gal/> */}
+      <Gal/>
       <Features/>
       <Testimonial/>
       <FAQs/>
