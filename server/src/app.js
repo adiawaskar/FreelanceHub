@@ -16,7 +16,7 @@ app.use(express.static("public"));
 app.use(cookieParser());
 
 //routes import
-import freelancerRouter from './routes/user.route.js';
+import freelancerRouter from './routes/freelancer.route.js';
 
 //routes declaration
 app.use("/api/v1/users", freelancerRouter);
