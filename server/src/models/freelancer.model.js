@@ -14,7 +14,7 @@ const CertificationSchema = new Schema({
   issue_date: { type: Date, required: true },
   expiration_date: { type: Date },
   certificate_url: { type: String, required: true }  // URL from Cloudinary
-});
+}, {timestamps: true, _id: true});
 
 const PortfolioImageSchema = new Schema({
   image_url: { type: String, required: true }  // URL from Cloudinary
@@ -25,7 +25,7 @@ const PortfolioSchema = new Schema({
   project_description: { type: String, required: true },
   project_url: { type: String },
   images: [PortfolioImageSchema]
-});
+}, {timestamps: true, _id: true});
 
 const ContractSchema = new Schema({
   contract_start_date: { type: Date, required: true },
@@ -39,7 +39,7 @@ const ProposalSchema = new Schema({
   client_id: { type: Schema.Types.ObjectId, ref: 'Client', required: true },
   job_id: { type: Schema.Types.ObjectId, ref: 'JobPosting', required: true },
   contract: ContractSchema
-});
+}, {timestamps: true});
 
 const freelancerSchema = new Schema({
   name: { type: String, required: true, index: true },

@@ -19,7 +19,7 @@ app.use(cookieParser());
 import freelancerRouter from './routes/freelancer.route.js';
 
 //routes declaration
-app.use("/api/v1/users", freelancerRouter);
+app.use("/api/v1/freelancers", freelancerRouter);
 
 
 export default app;
