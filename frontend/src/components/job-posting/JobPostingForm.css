@@ -1,0 +1,104 @@
+/* Style the background */
+body {
+    /* background-image: url('main-background.jpg'); */
+    /* Add your background image URL */
+    background-color: #4a90e2;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    
+}
+
+.uploaded-image{
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    width: 40%;
+    border-radius: 40px;
+}
+
+/* Center the form to the left side */
+.job-posting-form-container {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    width: 40%;
+    background-color: white;
+    /* Changed to solid white */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease;
+}
+
+/* Title styling */
+.form-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Form elements styling */
+.form-label {
+    display: block;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    border-color: #4a90e2;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(74, 144, 226, 0.5);
+}
+
+/* Button styling */
+.form-next-button,
+.form-prev-button,
+.form-submit-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 10px;
+    background-color: #4a90e2;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.form-next-button:hover,
+.form-prev-button:hover,
+.form-submit-button:hover {
+    background-color: #357ABD;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
