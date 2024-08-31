@@ -1,0 +1,119 @@
+.projects--content {
+    width: 75%;
+}
+
+.projects--header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.projects--title {
+    color: #0c055c;
+}
+
+.projects--activity {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: auto;
+}
+
+.projects--search-box {
+    background: #dde6ed;
+    padding: 8px 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.projects--search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 5px;
+}
+
+.projects--search-icon {
+    color: #0c055c;
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+
+.projects--icon:hover {
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+
+.projects--container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 2rem;
+}
+
+.projects--card {
+    background: #0c055c;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    transition: 0.5s ease-in-out;
+}
+
+.projects--card:hover{
+    transform: scale(1.04);
+    cursor: pointer;
+}
+
+.projects--card-cover{
+    background: #dbdae9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    padding: 20px;
+    border-radius: 20px;
+    color: #969393;
+}
+
+.projects--card-title{
+    background: #ffffffc0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 10px;
+    color: #0c055c;
+    font-size: 14px;
+}
+
+.projects--card-description {
+    padding: 10px;
+    font-size: 14px;
+    color: #0c055c;
+    margin: 0;
+    text-align: left; /* Align text to the left */
+}
+
+.projects--card-techstack {
+    list-style-type: none;
+    padding: 5px 5px;
+    margin: 0;
+    font-size: 0.9rem;
+    display: flex; /* Display tech stack items in a row */
+    gap: 10px; /* Adjust spacing between items */
+}
+
+.projects--card-techstack li {
+    background: #1a1a1a;
+    padding: 5px;
+    border-radius: 5px;
+    color: #ffffff;
+    display: inline; /* Display items inline within the flex container */
+}
