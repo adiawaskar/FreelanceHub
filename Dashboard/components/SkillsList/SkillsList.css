@@ -1,0 +1,73 @@
+.list--header {
+    display: flex;
+    margin: 2rem 0;
+    justify-content: space-between;
+}
+
+.list--header h2 {
+    color: #526d82;
+}
+
+.list--header select {
+    border-radius: 10px;
+    border: none;
+    padding: 8px 12px;
+    border: 1px solid #dde6ed;
+    color: #526d82;
+}
+
+.list--container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.list {
+    display: flex;
+    padding-right: 10px;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.3s ease-in-out;
+    border-bottom: 1px solid #dde6ed;
+    /* Optional: to separate each item visually */
+}
+
+.teacher--detail {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #526d82;
+    flex: 1;
+    /* Make it take available space */
+}
+
+.teacher--detail img {
+    width: 50px;
+    background: #dde6ed;
+    border-radius: 50%;
+}
+
+.teacher--detail h2 {
+    flex-basis: 200px;
+    /* Set a fixed width for the name */
+    white-space: nowrap;
+    /* Prevent text wrapping */
+}
+
+.list span {
+    flex-basis: 150px;
+    /* Set a fixed width for each span */
+    text-align: right;
+    /* Align text to the right */
+}
+
+.teacher--todo {
+    flex-basis: 50px;
+    /* Set width for the todo or action section */
+    text-align: center;
+}
+
+.list:hover {
+    background: #dde6ed;
+    border-radius: 10px;
+}
