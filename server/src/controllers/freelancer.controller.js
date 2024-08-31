@@ -1,7 +1,7 @@
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiError } from "../utils/ApiError.js";
 import { Freelancer } from "../models/freelancer.model.js";
-import uploadToCloudinary from "../utils/cloudinary.js";
+import { uploadToCloudinary, deleteFromCloudinary } from "../utils/cloudinary.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import jwt from "jsonwebtoken";
 
@@ -213,14 +213,15 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
 });
 
 const addCertification = asyncHandler(async (req, res) => {
-    const { freelancerId, certification_name, certification_institution, issue_date, expiration_date } = req.body;
+    const {certification_name, certification_institution, issue_date, expiration_date } = req.body;
+    const freelancerId = req.user._id;
 
-    if (!req.files || !req.files.certificate) {
+    if (!req.files || !req.files['certificate_url']) {
         throw new ApiError(400, 'Certification file is required');
     }
 
-    const certificateFilePath = req.files.certificate[0].path;
-    const uploadResult = await uploadToCloudinary(certificateFilePath);
+    const certificateFilePath = req.files['certificate_url'][0].path; // Make sure this matches the field name
+    const uploadResult = await uploadToCloudinary(certificateFilePath); // Call the function
 
     const newCertification = {
         certification_name,
@@ -238,12 +239,24 @@ const addCertification = asyncHandler(async (req, res) => {
     freelancer.certifications.push(newCertification);
     await freelancer.save();
 
-    return res.status(200)
-    .json(
-        new ApiResponse(200, freelancer, 'Certification added successfully'
-
-        ));
+    return res.status(200).json(new ApiResponse(200, freelancer, 'Certification added successfully'));
 });
+
+
+const getCertifications = asyncHandler(async (req, res) => {
+    const freelancerId = req.user._id;
+
+    const freelancer = await Freelancer.findById(freelancerId).select('certifications');
+
+    if (!freelancer) {
+        throw new ApiError(404, "Freelancer not found");
+    }
+
+    return res.status(200).json(
+        new ApiResponse(200, freelancer.certifications, "Certifications retrieved successfully")
+    );
+});
+
 
 const removeCertification = asyncHandler(async (req, res) => {
     const freelancerId = req.user._id;  
@@ -271,4 +284,12 @@ const removeCertification = asyncHandler(async (req, res) => {
 });
 
 
-export { registerUser, loginUser, logOutUser, refreshAccessToken, addCertification, removeCertification };
+export { 
+    registerUser, 
+    loginUser, 
+    logOutUser, 
+    refreshAccessToken, 
+    addCertification, 
+    removeCertification, 
+    getCertifications 
+};
