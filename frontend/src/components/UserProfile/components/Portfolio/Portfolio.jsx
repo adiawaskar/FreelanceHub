@@ -84,7 +84,7 @@ const PortfolioPage = () => {
       {/* Skills Section */}
       <section className="skills-section">
         <h2>Skills</h2>
-        <ul className="skills-list">
+        <ul className="skillsList">
           <li>React</li>
           <li>JavaScript</li>
           <li>HTML/CSS</li>

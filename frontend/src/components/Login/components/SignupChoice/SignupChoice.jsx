@@ -5,7 +5,7 @@ import './SignupChoice.css';
 function SignupChoice() {
   return (
     <div className="signup-choice-container">
-      <h1>Choose Your Account Type</h1>
+      <h1 className='h1'>Choose Your Account Type</h1>
       <div className="button-container">
         <Link to="/freelancer-signup" className="signup-button freelancer">
           Sign up as Freelancer

@@ -55,8 +55,8 @@ const JobDetails = () => {
             <li>Attention to Detail</li>
             <li>Creative Problem-Solving</li>
           </ul>
-        </div><div className="button-container">
-          <button className="apply-button">Apply Now</button>
+        </div><div className="button-container flex " >
+          <button className="apply-button w-64 ml-80">Apply Now</button>
         </div>
     </div>
   );

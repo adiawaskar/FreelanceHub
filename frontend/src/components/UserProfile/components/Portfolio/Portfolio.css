@@ -34,13 +34,13 @@
     margin-top: 30px;
 }
 
-.skills-list,
+.skillsList,
 .education-list {
     list-style-type: none;
     padding: 0;
 }
 
-.skills-list li,
+.skillsList li,
 .education-list li {
     background-color: #f4f4f4;
     padding: 10px;

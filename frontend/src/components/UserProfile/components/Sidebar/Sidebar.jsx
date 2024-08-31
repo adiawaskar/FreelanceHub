@@ -5,15 +5,15 @@ import './Sidebar.css';
 const Sidebar = ({ activeItem, setActiveItem }) => {
   return (
     <div className='menu'>
-      <div className="logo">
-        {/* <BiBookAlt className="logo-icon" />
+      <div className="sidebarLogo">
+        {/* <BiBookAlt className="sidebarLogo-icon" />
         <h2>FreeLanceHub</h2> */}
       </div>
 
       <div className="menu--list">
         <a
           href="#"
-          className={`item ${activeItem === 'Dashboard' ? 'active' : ''}`}
+          className={`item ${activeItem === 'Dashboard' ? 'activ' : ''}`}
           onClick={() => setActiveItem('Dashboard')}
         >
           <BiHome className="icon" />
@@ -21,7 +21,7 @@ const Sidebar = ({ activeItem, setActiveItem }) => {
         </a>
         <a
           href="#"
-          className={`item ${activeItem === 'Portfolio' ? 'active' : ''}`}
+          className={`item ${activeItem === 'Portfolio' ? 'activ' : ''}`}
           onClick={() => setActiveItem('Portfolio')}
         >
           <BiTask className="icon" />
@@ -29,7 +29,7 @@ const Sidebar = ({ activeItem, setActiveItem }) => {
         </a>
         {/* <a
           href="#"
-          className={`item ${activeItem === 'Contract' ? 'active' : ''}`}
+          className={`item ${activeItem === 'Contract' ? 'activ' : ''}`}
           onClick={() => setActiveItem('Contract')}
         >
           <BiSolidReport className="icon" />
@@ -37,7 +37,7 @@ const Sidebar = ({ activeItem, setActiveItem }) => {
         </a> */}
         <a
           href="#"
-          className={`item ${activeItem === 'Certifications' ? 'active' : ''}`}
+          className={`item ${activeItem === 'Certifications' ? 'activ' : ''}`}
           onClick={() => setActiveItem('Certifications')}
         >
           <BiBookOpen className="icon" />
@@ -45,7 +45,7 @@ const Sidebar = ({ activeItem, setActiveItem }) => {
         </a>
         {/* <a
           href="#"
-          className={`item ${activeItem === 'Proposal' ? 'active' : ''}`}
+          className={`item ${activeItem === 'Proposal' ? 'activ' : ''}`}
           onClick={() => setActiveItem('Proposal')}
         >
           <BiStats className="icon" />
@@ -53,7 +53,7 @@ const Sidebar = ({ activeItem, setActiveItem }) => {
         </a> */}
         <a
           href="#"
-          className={`item ${activeItem === 'Projects' ? 'active' : ''}`}
+          className={`item ${activeItem === 'Projects' ? 'activ' : ''}`}
           onClick={() => setActiveItem('Projects')}
         >
           <BiFolder className="icon" />
