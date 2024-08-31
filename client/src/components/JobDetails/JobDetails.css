@@ -1,0 +1,155 @@
+/* JobDetails.css */
+
+/* Basic styles for the sliding card */
+.job-details-card {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%; /* Adjust width as needed */
+    height: 100%;
+    background-color: #06013a;
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+  
+  /* Show the card when active */
+  .job-details-card.active {
+    transform: translateX(0);
+  }
+  
+  .job-details-content {
+    color: aliceblue;
+    padding: 20px;
+  }
+  
+  .posted-on-line {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #fff;
+  }
+  
+  .location {
+    color: #888;
+  }
+  
+  .job-description {
+    margin-top: 20px;
+    border-bottom: 1px solid #fff;
+  }
+  
+  /* Optional: Add a close button */
+  .job-details-card .close-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: aliceblue;
+  }
+  
+  .requirements{
+    padding: 20px;
+  }
+
+  .details-icons {
+    display: flex;
+    justify-content: space-between; /* Space out items evenly */
+    margin-top: 20px;
+    padding: 20px;
+    border-bottom: 1px solid #fff;
+  }
+  
+  .details-item {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    gap: 15px; /* Space between icon and text */
+    /* flex: 1;  */
+    overflow: auto;
+  }
+  
+  .icon {
+    font-size: 65px; /* Increase the size of the icons */
+    color: #007bff; /* Adjust color as needed */
+  }
+  
+  .details-item div {
+    display: flex;
+    flex-direction: column; /* Stack text vertically */
+  }
+  
+  .header {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .details-description {
+    font-size: 12px;
+    color: #666; 
+    margin: 0;
+  }
+
+  /* Styles for the skills section */
+  .skills-section {
+    margin: 20px;
+    border-bottom: 1px solid #fff;
+  }
+  
+  .skills-section h2 {
+    margin-bottom: 10px;
+    color: aliceblue;
+    margin: 10px;
+  }
+  
+  .skills-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; /* Wrap tags to the next line */
+    gap: 10px; /* Space between tags */
+    /* color: aliceblue; */
+    padding: 10px;
+  }
+  
+  .skills-list li {
+    background-color: #007bff; /* Background color for tags */
+    color: white; /* Text color */
+    border-radius: 15px; /* Rounded corners */
+    padding: 5px 15px; /* Padding inside the tag */
+    font-size: 14px;
+    display: inline-block; /* Allow tags to flow in a row */
+    /* margin: 5px; */
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically (if container has a height) */
+    margin: 20px; /* Optional: Add margin if needed */
+  }
+  
+  .apply-button {
+    font-size: 16px;
+    font-weight: bold;
+    background: #007bff;
+    color: #fff;
+    border-radius: 40px;
+    height: 50px;
+    padding: 0 20px; /* Add horizontal padding for better appearance */
+    border: none; /* Remove default border */
+    cursor: pointer; /* Change cursor on hover */
+    display: flex;
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+  }
+
+  .apply-button:hover{
+    background: #fff;
+    color: #007bff;
+  }
