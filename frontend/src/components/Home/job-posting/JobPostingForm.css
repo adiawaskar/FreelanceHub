@@ -1,14 +1,4 @@
-/* Style the background */
-body {
-    /* background-image: url('main-background.jpg'); */
-    /* Add your background image URL */
-    background-color: #4a90e2;
-    background-size: cover;
-    background-position: center;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    
-}
+
 
 .uploaded-image{
     position: absolute;

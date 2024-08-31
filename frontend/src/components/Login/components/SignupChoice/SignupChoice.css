@@ -1,0 +1,89 @@
+/* html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    color: #fff;
+    background: url('bg10.jpg') no-repeat center center fixed;
+    background-size: cover;
+    text-decoration: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+} */
+
+.signup-choice-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.016);
+    border: 2px solid rgba(255, 255, 255, .1);
+    backdrop-filter: blur(40px);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.h1 {
+    color: #fff;
+    margin-bottom: 30px;
+    font-size: 28px;
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.signup-button {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    /* Remove underline */
+    color: #333;
+    background: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.signup-button.freelancer,
+.signup-button.employer {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.signup-button.freelancer:hover,
+.signup-button.employer:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 480px) {
+    .signup-choice-container {
+        padding: 20px;
+    }
+
+    .h1 {
+        font-size: 24px;
+    }
+
+    .signup-button {
+        font-size: 14px;
+        padding: 12px;
+    }
+}

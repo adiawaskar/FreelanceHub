@@ -1,0 +1,29 @@
+.about {
+    padding: 50px;
+    /* background-color: #fff; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 1000px;
+}
+
+.about-image {
+    width: 300px;
+    margin-right: 50px;
+}
+
+.about-text h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}

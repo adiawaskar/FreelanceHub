@@ -1,0 +1,119 @@
+.landing-body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.login-body {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url('./components/Login/components/LoginSignup/bg10.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.signup-choice-body{
+height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    color: #fff;
+    background: url('./components/Login/components/SignupChoice/bg10.jpg') no-repeat center center fixed;
+    background-size: cover;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+ .signup-html{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    color: #fff;
+    background: url('./components/Login/components/SignupChoice/bg10.jpg') no-repeat center center fixed;
+    background-size: cover;
+    text-decoration: none;
+}
+
+.freelancer-signup-body {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url('./components/Login/components/Freelancer-Signup/bg10.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.hirer-signup-body {
+  font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('./components/Login/components/Freelancer-Signup/bg10.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.posting-form-body{
+  background-image: url('./components/Login/components/Freelancer-Signup/bg10.jpg'); 
+    /* Add your background image URL */
+    /* background-color: #4a90e2; */
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.user-profile-body {
+  background: #dde6ed;
+  background-image: url(./components/Login/components/Freelancer-Signup/bg10.jpg);
+  /* background: #0c055c; */
+  padding: 20px;
+}
+
+
+.App {
+  text-align: center;
+  position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.app-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.4;
+}
+
+.app-content {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+}

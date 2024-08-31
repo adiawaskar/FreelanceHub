@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './JobPostingForm.css'; // Import CSS file
 import uploadedImage from './side-image.jpg';
+import Navbar from '../Navbar';
 
 const JobPostingForm = () => {
   const [formData, setFormData] = useState({
@@ -39,6 +40,7 @@ const JobPostingForm = () => {
 
   return (
     <>
+    <Navbar />
     <div className="job-posting-form-container mt-12">
       
       <form className="job-posting-form " onSubmit={handleSubmit}>

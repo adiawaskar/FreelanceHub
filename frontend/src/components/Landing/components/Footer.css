@@ -1,0 +1,27 @@
+/* Styles for the footer */
+.footer {
+    background-color: #333;
+    /* Dark background color */
+    color: #ffffff;
+    /* White text color */
+    padding: 20px;
+    /* Padding around the footer */
+    text-align: center;
+    /* Center align text */
+    position: relative;
+    /* Positioned relative for full-width */
+    width: 100%;
+    /* Full width */
+    bottom: 0;
+    /* Stick to the bottom */
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow on top */
+}
+
+/* Styles for the copyright text */
+.footer p {
+    margin: 0;
+    /* Remove default margin */
+    font-size: 0.875rem;
+    /* Slightly smaller font size */
+}

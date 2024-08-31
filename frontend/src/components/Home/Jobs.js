@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import JobPosting from "./JobEntry";
 import test from "../logo.png";
 import jobPostings from "./jobPostings";
+import Navbar from './Navbar';
 // import JobPostingForm from "./job-posting/JobPostingForm";
 function Jobs() {
   // Pagination state
@@ -33,13 +34,15 @@ function Jobs() {
   // Handler for navigating pages
   const handleClick = (pageNumber) => setCurrentPage(pageNumber);
 
-  const cardColors = ['bg-orange-100', 'bg-green-100', 'bg-yellow-100', 'bg-fuchsia-100'];
+  const cardColors = ['bg-blue-100', 'bg-cyan-200', 'bg-sky-100', 'bg-teal-100'];
 
   return (
+    <>
+    <Navbar />
     <div className="p-12 mt-12 bg-blue-200 bg-opacity-60">
       <div className="flex">
         <div className="w-1/5 flex flex-col items-start">
-          <button className="bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 rounded-md p-2 px-4 text-white font-semibold h-16 text-3xl shadow-lg transition-transform transform hover:scale-105">
+          <button className="bg-gradient-to-r from-green-400 to-green-600 bg-  hover:from-green-500 hover:to-green-700 rounded-md p-2 px-4 text-white font-semibold h-16 text-3xl shadow-lg transition-transform transform hover:scale-105">
           <Link to="/form" className="text-white">
               Add New Job
             </Link>
@@ -125,6 +128,7 @@ function Jobs() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
