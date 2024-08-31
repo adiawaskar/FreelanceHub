@@ -52,12 +52,25 @@ const registerUser = asyncHandler( async (req, res) => {
         profilePicLocalPath = req.files.profile_image[0].path;
     }
 
+    let resumePath;
+
+    if(req.files && Array.isArray(req.files.resume) && req.files.resume.length > 0)
+    {
+        resumePath = req.files.resume[0].path;
+    }
+
     if(!profilePicLocalPath)
     {
         throw new ApiError(400, "Profile Pic is Required");
     }
 
+    if(!resumePath)
+    {
+        throw new ApiError(400, "Resume is Required");
+    }
+
     const profilePic = await uploadToCloudinary(profilePicLocalPath);
+    const resume = await uploadToCloudinary(resumePath);
 
     const user = await Freelancer.create({
         name,
@@ -66,7 +79,8 @@ const registerUser = asyncHandler( async (req, res) => {
         phone,
         profile_image: profilePic.url,
         profile_visibility: "Public",
-        skills: []
+        skills: [],
+        resume: [{file_url: resume.url}]
     });
 
     const createdUser = await Freelancer.findById(user._id).select(
@@ -198,4 +212,63 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
     }
 });
 
-export { registerUser, loginUser, logOutUser, refreshAccessToken };
+const addCertification = asyncHandler(async (req, res) => {
+    const { freelancerId, certification_name, certification_institution, issue_date, expiration_date } = req.body;
+
+    if (!req.files || !req.files.certificate) {
+        throw new ApiError(400, 'Certification file is required');
+    }
+
+    const certificateFilePath = req.files.certificate[0].path;
+    const uploadResult = await uploadToCloudinary(certificateFilePath);
+
+    const newCertification = {
+        certification_name,
+        certification_institution,
+        issue_date,
+        expiration_date,
+        certificate_url: uploadResult.url
+    };
+
+    const freelancer = await Freelancer.findById(freelancerId);
+    if (!freelancer) {
+        throw new ApiError(404, 'Freelancer not found');
+    }
+
+    freelancer.certifications.push(newCertification);
+    await freelancer.save();
+
+    return res.status(200)
+    .json(
+        new ApiResponse(200, freelancer, 'Certification added successfully'
+
+        ));
+});
+
+const removeCertification = asyncHandler(async (req, res) => {
+    const freelancerId = req.user._id;  
+    const certificationId = req.params.certificationId;
+
+    const freelancer = await Freelancer.findById(freelancerId);
+    if (!freelancer) {
+        throw new ApiError(404, "Freelancer not found");
+    }
+
+    const certification = freelancer.certifications.id(certificationId);
+    if (!certification) {
+        throw new ApiError(404, "Certification not found");
+    }
+
+    const publicId = certification.certificate_url.split('/').pop().split('.')[0];
+
+    await deleteFromCloudinary(publicId);
+
+    certification.remove();
+
+    await freelancer.save();
+
+    return res.status(200).json(new ApiResponse(200, null, "Certification removed successfully"));
+});
+
+
+export { registerUser, loginUser, logOutUser, refreshAccessToken, addCertification, removeCertification };
