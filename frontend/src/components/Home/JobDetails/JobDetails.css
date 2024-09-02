@@ -1,0 +1,161 @@
+/* Basic styles for the sliding card */
+.job-details-card {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 60%; /* Adjust width for a sleeker look */
+  height: 100%;
+  background-color: #06013a;
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto;
+  color: aliceblue;
+  text-align: center;
+}
+
+/* Show the card when active */
+.job-details-card.active {
+  transform: translateX(0);
+}
+
+/* Close button styling */
+.job-details-card .close-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: aliceblue;
+  background: none;
+  border: none;
+}
+
+/* Content styling */
+.job-details-content {
+  padding: 20px;
+}
+
+.job-details-content h1 {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.posted-on-line {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #888;
+}
+
+.location {
+  color: #bbb;
+}
+
+.job-description {
+  margin-top: 20px;
+  line-height: 1.6;
+  border-bottom: 1px solid #888;
+  padding-bottom: 20px;
+}
+
+.requirements {
+  margin-top: 15px;
+  padding-left: 15px;
+}
+
+.requirements ul {
+  list-style: disc;
+  margin-left: 20px;
+  text-align: left;
+}
+
+/* Icons section */
+.details-icons {
+  display: flex;
+  justify-content: space-around; /* Ensure even spacing between items */
+  margin-top: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid #888;
+}
+
+.details-item {
+  display: flex;
+  flex-direction: column; /* Stack the icon and text vertically */
+  align-items: center; /* Center both the icon and text horizontally */
+  text-align: center; /* Center text */
+}
+
+.details-item .icon {
+  font-size: 2.5rem; /* Adjust size as needed */
+  color: #007bff;
+  margin-bottom: 10px; /* Space between the icon and the text */
+}
+
+
+.details-item p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.details-description {
+  font-size: 0.875rem;
+  color: #bbb;
+}
+
+/* Skills section */
+.skills-section {
+  /* margin-top: 10px; */
+  padding: 20px 0;
+  border-bottom: 1px solid #888;
+  
+}
+
+.skills-section h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.skills-list {
+  list-style: none;
+  /* padding: 0; */
+  padding-left: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skills-list li {
+  background-color: #007bff;
+  color: white;
+  border-radius: 20px;
+  padding: 5px 15px;
+  font-size: 0.875rem;
+}
+
+/* Apply button section */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.apply-button {
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #007bff;
+  color: white;
+  border-radius: 25px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.apply-button:hover {
+  background-color: white;
+  color: #007bff;
+}

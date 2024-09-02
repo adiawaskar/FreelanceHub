@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* 
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+} */
+
+
+.dashboard--background{
+  background-image: url(../Login/components/Freelancer-Signup/bg10.jpg);
+}
+.dashboard {
+  display: flex;
+  gap: 20px;
+  /* background-image: url(../public/bg10.jpg); */
+}
+
+.dashboard--content {
+  background: #ffffff;
+  flex: 1;
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  
+}
