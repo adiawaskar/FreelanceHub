@@ -1,6 +1,4 @@
-
-
-.uploaded-image{
+.uploaded-image {
     position: absolute;
     top: 50%;
     right: 5%;
@@ -12,16 +10,21 @@
 /* Center the form to the left side */
 .job-posting-form-container {
     position: absolute;
-    top: 50%;
+    top: 50px;
+    /* 50px margin on top */
+    bottom: 50px;
+    /* 50px margin on bottom */
     left: 5%;
-    transform: translateY(-50%);
+    /* Position on the left side */
     width: 40%;
     background-color: white;
-    /* Changed to solid white */
+    /* Solid white background */
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
     animation: fadeIn 0.5s ease;
+    box-sizing: border-box;
+    /* Ensure padding and border are included in the width and height */
 }
 
 /* Title styling */

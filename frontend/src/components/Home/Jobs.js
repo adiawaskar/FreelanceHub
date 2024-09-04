@@ -16,6 +16,7 @@ function Jobs() {
   const [selectedLocation, setSelectedLocation] = useState("All");
   const [selectedCompany, setSelectedCompany] = useState("All");
   const [selectedPayRange, setSelectedPayRange] = useState("All");
+  const [selectedSkills, setSelectedSkills] = useState("All");
 
   // Calculate the filtered jobs
   const filteredJobs = jobPostings.filter((job) => {
@@ -28,7 +29,9 @@ function Jobs() {
       || selectedPayRange === "500-1000" && job.jobPay >= 500 && job.jobPay <= 1000
       || selectedPayRange === "Above 1000" && job.jobPay > 1000
     );
-    return matchesSearchTerm && matchesStatus && matchesLocation && matchesCompany && matchesPayRange;
+    const matchesSkills = selectedSkills === "All" || job.jobSkillsRequired.includes(selectedSkills);
+
+    return matchesSearchTerm && matchesStatus && matchesLocation && matchesCompany && matchesPayRange && matchesSkills;
   });
 
   // Pagination calculations
@@ -100,6 +103,17 @@ function Jobs() {
                   <option value="500-1000">&#8377;500/hr - &#8377;1000/hr</option>
                   <option value="Above 1000">Above &#8377;1000/hr</option>
                 </select>
+                <select
+                  className="border p-2 rounded-lg w-full shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                  value={selectedSkills}
+                  onChange={(e) => setSelectedSkills(e.target.value)}
+                >
+                  <option value="All">All Skills</option>
+                  <option value="Python">Python</option>
+                  <option value="JavaScript">JavaScript</option>
+                  <option value="React">React</option>
+                  {/* Add more skills as needed */}
+                </select>
               </div>
             </div>
           </div>
@@ -121,6 +135,7 @@ function Jobs() {
                   setSelectedLocation("All");
                   setSelectedCompany("All");
                   setSelectedPayRange("All");
+                  setSelectedSkills("All");
                 }}
               >
                 Clear Filters
@@ -137,9 +152,9 @@ function Jobs() {
                   jobDescription={job.jobDescription}
                   jobStatus={job.jobStatus}
                   jobSkillsRequired={job.jobSkillsRequired}
-                  jobPay={job.jobPay|| '500'}
-                  jobLocation={job.jobLocation||'Mumbai, Maharashtra'}
-                  jobCompany={job.jobCompany||'Hexagon'}
+                  jobPay={job.jobPay || '500'}
+                  jobLocation={job.jobLocation || 'Mumbai, Maharashtra'}
+                  jobCompany={job.jobCompany || 'Hexagon'}
                   jobLogo={test}
                   color={cardColors[index % cardColors.length]}
                 />
