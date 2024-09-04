@@ -12,6 +12,7 @@ function JobEntry({
   jobSkillsRequired,
   jobPay,
   jobLocation,
+  jobData
 }) {
   const [showDetails, setShowDetails] = useState(false);
 
@@ -85,7 +86,20 @@ function JobEntry({
         </section>
       </div>
     </div>
-    {showDetails && <JobDetails />}
+    {showDetails && (
+        <JobDetails
+          company_name={jobData.company_name}
+          job_title={jobData.job_title}
+          job_description={jobData.job_description}
+          job_status={jobData.job_status}
+          job_visibility={jobData.job_visibility}
+          job_skills_required={jobData.job_skills_required}
+          pay_rate={jobData.pay_rate}
+          location={jobData.location}
+          requirements={jobData.requirements}
+          last_date_to_apply={jobData.last_date_to_apply}
+        />
+      )}
     </>
   );
 }

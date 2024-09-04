@@ -24,7 +24,7 @@ const JobPostingSchema = new mongoose.Schema({
     job_status: { type: String, required: true },
     job_visibility: { type: String, required: true },
     job_skills_required: { type: [String], required: true },
-    pay_rate: { type: Number, required: true },
+    pay_rate: { type: String, required: true },
     location: { type: String, required: true },
     requirements: { type: [String], required: true },
     last_date_to_apply: { type: Date, required: true } // Ensure this matches the data type
