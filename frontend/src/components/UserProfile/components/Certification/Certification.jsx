@@ -108,13 +108,16 @@ const Certification = () => {
 
   const fetchCertifications = async () => {
     try {
-      const response = await fetch('/api/certifications'); // Adjust the endpoint as needed
+      const response = await fetch('http://localhost:8000/api/v1/freelancers/certifications', {
+        credentials: 'include', // Include cookies with the request
+      });
       const data = await response.json();
       setCertificates(data.data); // Assuming `data` contains the certifications
     } catch (error) {
       console.error('Error fetching certifications:', error);
     }
   };
+  
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -131,11 +134,12 @@ const Certification = () => {
     for (const [key, value] of Object.entries(newCert)) {
       formData.append(key, value);
     }
-
+  
     try {
-      await fetch('/api/certifications', { // Adjust the endpoint as needed
+      await fetch('http://localhost:8000/api/v1/freelancers/certifications', {
         method: 'POST',
         body: formData,
+        credentials: 'include', // Include cookies with the request
       });
       setShowForm(false); // Hide the form after successful submission
       fetchCertifications(); // Refresh the certificates after adding a new one
@@ -143,6 +147,7 @@ const Certification = () => {
       console.error('Error adding certification:', error);
     }
   };
+  
 
   const handleDelete = async (certificationId) => {
     try {
