@@ -12,26 +12,27 @@ const Projects = () => {
     });
 
     // Fetching project data from backend
-    useEffect(() => {
-        fetch('http://localhost:8000/api/v1/freelancers/projects', {credentials: 'include'}) // Replace with your actual API endpoint
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                // Ensure data is an array
-                if (Array.isArray(data)) {
-                    setProjects(data);
-                } else {
-                    console.error("Fetched data is not an array");
-                }
-            })
-            .catch(error => {
-                console.error("There was an error fetching the projects!", error);
-            });
-    }, []);
+useEffect(() => {
+    fetch('http://localhost:8000/api/v1/freelancers/projects', { credentials: 'include' }) 
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Ensure the response contains the 'data' field where the portfolio array is located
+            if (data && data.data && Array.isArray(data.data)) {
+                setProjects(data.data); // Set projects with the actual portfolio array
+            } else {
+                console.error("Fetched data does not contain the expected portfolio array");
+            }
+        })
+        .catch(error => {
+            console.error("There was an error fetching the projects!", error);
+        });
+}, []);
+
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -42,7 +43,7 @@ const Projects = () => {
         const file = e.target.files[0]; // Get the first file selected
 
         if (file) {
-            // Optional: Validate file type and size
+            // Validate file size and type
             if (file.size > 5 * 1024 * 1024) { // Limit file size to 5MB
                 alert("File size exceeds 5MB. Please select a smaller file.");
                 return;
@@ -52,33 +53,28 @@ const Projects = () => {
                 alert("Invalid file type. Please select a JPEG, PNG, or GIF image.");
                 return;
             }
-
-            // Create a FileReader to read the file
-            const reader = new FileReader();
-
-            // Read the file as a Data URL (base64 string)
-            reader.readAsDataURL(file);
         }
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+    
         // Prepare form data including file upload
         const formDataToSend = new FormData();
         formDataToSend.append('project_name', formData.project_name);
         formDataToSend.append('project_description', formData.project_description);
         formDataToSend.append('project_url', formData.project_url);
-
-        // Append files if any
+    
+        // Append file if any
         const fileInput = document.getElementById('images');
         if (fileInput.files.length > 0) {
             formDataToSend.append('images', fileInput.files[0]);
         }
-
-        fetch('http://localhost:8000/api/v1/freelancers/projects', { // Replace with your actual API endpoint
+    
+        fetch('http://localhost:8000/api/v1/freelancers/projects', {
             method: 'POST',
-            body: formDataToSend
+            body: formDataToSend,
+            credentials: 'include',  // Include credentials if necessary
         })
         .then(response => {
             if (!response.ok) {
@@ -87,17 +83,22 @@ const Projects = () => {
             return response.json();
         })
         .then(data => {
-            setProjects(prevProjects => [...prevProjects, data]); // Add the new project to the current project list
+            // Ensure the response contains the 'data' field where the portfolio array is located
+            if (data && data.data && Array.isArray(data.data)) {
+                setProjects(data.data); // Update the projects with the entire updated portfolio array
+            } else {
+                console.error("Response does not contain the expected portfolio data");
+            }
             setShowForm(false);  // Close form after submission
         })
         .catch(error => {
             console.error("There was an error adding the project!", error);
         });
     };
+    
 
     return (
         <div className="projects-page">
-            {/* Blurred background when modal is active */}
             <div className={showForm ? 'blur-background' : ''}>
                 <div className="projects--header">
                     <h1 className="header--title">Projects</h1>
@@ -110,35 +111,38 @@ const Projects = () => {
                 </div>
 
                 <div className="projects--container">
-                    {projects.length === 0 ? (
-                        <div className="no-projects-message">
-                            <h2>No projects yet!</h2>
-                        </div>
+    {projects.length === 0 ? (
+        <div className="no-projects-message">
+            <h2>No projects yet!</h2>
+        </div>
+    ) : (
+        projects.map((item) => (
+            <div className="projects--card" key={item._id}>
+                <div className="projects--card-cover">
+                    {item.images && item.images.length > 0 ? (
+                        <img src={item.images[0].image_url} alt="Project" className="project-image" />
                     ) : (
-                        projects.map((item) => (
-                            <div className="projects--card" key={item.id}>
-                                <div className="projects--card-cover">
-                                    <BiLogoHtml5 /> {/* Replace with dynamic icon if needed */}
-                                </div>
-                                <div className="projects--card-title">
-                                    <h2>{item.project_name}</h2>
-                                    <p className="projects--card-description">{item.project_description}</p>
-                                    <ul className="projects--card-techstack">
-                                        {/* Assuming techStack is part of the API response */}
-                                        {item.techStack && item.techStack.map((tech, index) => (
-                                            <li key={index}>{tech}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </div>
-                        ))
+                        <BiLogoHtml5 /> // Fallback icon if no image is available
                     )}
                 </div>
+                <div className="projects--card-title">
+                    <h2>{item.project_name}</h2>
+                    <p className="projects--card-description">{item.project_description}</p>
+                    <ul className="projects--card-techstack">
+                        {item.techStack && item.techStack.map((tech, index) => (
+                            <li key={index}>{tech}</li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        ))
+    )}
+</div>
+
 
                 <button onClick={() => setShowForm(true)} className="add-project-button">Add Project</button>
             </div>
 
-            {/* Modal for adding a project */}
             {showForm && (
                 <div className="modal-overlay">
                     <div className="modal-content">

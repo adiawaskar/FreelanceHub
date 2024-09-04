@@ -12,6 +12,21 @@
     color: #0c055c;
 }
 
+.project-image {
+    width: 100%;               /* Make image take full width of container */
+    height: auto;              /* Maintain aspect ratio */
+    max-height: 200px;          /* Prevent the image from getting too tall */
+    object-fit: cover;          /* Crop to fit within the container */
+    border-radius: 12px;        /* Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.2s ease-in-out;   /* Smooth transition effect */
+}
+
+.project-image:hover {
+    transform: scale(1.05);     /* Slight zoom-in effect on hover */
+}
+
+
 .projects--activity {
     display: flex;
     align-items: center;
