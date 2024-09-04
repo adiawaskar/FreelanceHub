@@ -1,0 +1,90 @@
+.proposal-card {
+    background-color: #e8e9eb;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+    width: 100%; /* Adjusted width */
+  }
+  
+  .proposal-card:hover {
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+  
+  .proposal-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .proposal-icon {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .icon {
+    color: #3182ce;
+  }
+  
+  .proposal-info {
+    flex-grow: 1;
+  }
+  
+  .proposal-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 0.5rem;
+  }
+  
+  .proposal-detail {
+    color: black;
+    margin-bottom: 0.25rem;
+  }
+  
+  .label {
+    font-weight: 500;
+  }
+  
+  .proposal-description {
+    margin-top: 1rem;
+  }
+  
+  .description-toggle {
+    display: flex;
+    align-items: center;
+    color: #2832f4;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+  }
+  
+  .description-toggle:hover {
+    color: #2949ff;
+    transform: translateY(-1px);
+  }
+  
+  .toggle-icon {
+    margin-left: 0.25rem;
+  }
+  
+  .description-text {
+    color: black;
+    margin-top: 0.5rem;
+  }
+  
+  @media (min-width: 640px) {
+    .proposal-content {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  
+    .proposal-icon {
+      margin-bottom: 0;
+    }
+  }
+  

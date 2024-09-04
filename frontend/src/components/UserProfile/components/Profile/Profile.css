@@ -105,3 +105,29 @@
     /* color: #969393; */
     color: #ffffff;
 }
+
+/* Logout Button */
+.logout-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  .logout-button {
+    padding: 0.75rem 2rem;
+    background-color: #e91717;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logout-button:hover {
+    background-color: #ffffff;
+    color: #e91717;
+    font-weight: bold;
+  }
+  
