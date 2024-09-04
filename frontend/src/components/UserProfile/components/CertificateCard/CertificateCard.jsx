@@ -74,4 +74,3 @@ const CertificateCard = ({ certifications, onDelete }) => {
 };
 
 export default CertificateCard;
-

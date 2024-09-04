@@ -5,6 +5,7 @@ import About from "./components/About";
 import Testimonial from "./components/Testimonial";
 import FAQs from "./components/FAQs";
 import Footer from "./components/Footer";
+import './Landing.css';
 function Landing(){
 
 return(
