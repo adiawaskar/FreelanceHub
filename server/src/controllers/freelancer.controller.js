@@ -287,6 +287,52 @@ const removeCertification = asyncHandler(async (req, res) => {
     return res.status(200).json(new ApiResponse(200, null, "Certification removed successfully"));
 });
 
+const addProject = asyncHandler(async (req, res) => {
+    const { project_name, project_description, project_url } = req.body;
+    const freelancerId = req.user._id;
+
+    if (!project_name || !project_description) {
+        throw new ApiError(400, "Project name and description are required");
+    }
+
+    let imagePath = null;
+
+    if (req.files && req.files.images && req.files.images.length > 0) {
+        const uploadResult = await uploadToCloudinary(req.files.images[0].path);
+        imagePath = { image_url: uploadResult.url };
+    }
+
+    const newProject = {
+        project_name,
+        project_description,
+        project_url: project_url || null,
+        images: imagePath ? [imagePath] : [] // Only one image allowed
+    };
+
+    const freelancer = await Freelancer.findById(freelancerId);
+    if (!freelancer) {
+        throw new ApiError(404, "Freelancer not found");
+    }
+
+    freelancer.portfolio.push(newProject);
+    await freelancer.save();
+
+    return res.status(200).json(new ApiResponse(200, freelancer.portfolio, "Project added successfully"));
+});
+
+
+const getProjects = asyncHandler(async (req, res) => {
+    const freelancerId = req.user._id;
+
+    const freelancer = await Freelancer.findById(freelancerId).select('portfolio');
+
+    if (!freelancer) {
+        throw new ApiError(404, "Freelancer not found");
+    }
+
+    return res.status(200).json(new ApiResponse(200, freelancer.portfolio, "Projects retrieved successfully"));
+});
+
 
 export { 
     registerUser, 
@@ -295,6 +341,8 @@ export {
     refreshAccessToken, 
     addCertification, 
     removeCertification, 
-    getCertifications 
+    getCertifications,
+    addProject,
+    getProjects
 };
 
