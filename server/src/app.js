@@ -22,4 +22,9 @@ import freelancerRouter from './routes/freelancer.route.js';
 app.use("/api/v1/freelancers", freelancerRouter);
 
 
+import jobPostingRouter from './routes/jobs.route.js';
+
+app.use("/api/v1/jobPosting", jobPostingRouter)
+
+
 export default app;

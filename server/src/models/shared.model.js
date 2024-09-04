@@ -29,4 +29,4 @@ export const ProposalSchema = new Schema({
   freelancer_name: { type: String, required: true },
   milestones: [MilestoneSchema],
   contract: ContractSchema
-});
+}, {timestamps: true, _id: true});
