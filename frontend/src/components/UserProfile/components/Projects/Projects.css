@@ -12,6 +12,21 @@
     color: #0c055c;
 }
 
+.project-image {
+    width: 100%;               /* Make image take full width of container */
+    height: auto;              /* Maintain aspect ratio */
+    max-height: 200px;          /* Prevent the image from getting too tall */
+    object-fit: cover;          /* Crop to fit within the container */
+    border-radius: 12px;        /* Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.2s ease-in-out;   /* Smooth transition effect */
+}
+
+.project-image:hover {
+    transform: scale(1.05);     /* Slight zoom-in effect on hover */
+}
+
+
 .projects--activity {
     display: flex;
     align-items: center;
@@ -116,4 +131,121 @@
     border-radius: 5px;
     color: #ffffff;
     display: inline; /* Display items inline within the flex container */
+}
+
+
+/* Blurred background when modal is active */
+.blur-background {
+    filter: blur(5px);
+    transition: filter 0.3s ease-in-out;
+}
+
+/* Modal overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Transparent black overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* Ensure it overlays the entire page */
+}
+
+/* Modal content (the form) */
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 500px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Higher than the overlay */
+    position: relative;
+}
+
+/* Close button for the modal */
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Form header */
+.add-project-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Form group styles */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+/* Form labels */
+.form-group label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Form inputs and textarea */
+.form-group input[type="text"],
+.form-group textarea,
+.form-group input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+/* Submit button */
+.add-project-button {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.add-project-button:hover {
+    background-color: #218838;
+}
+
+.add-project-button:focus {
+    outline: none;
+}
+
+/* File input styling */
+.add-project-form input[type="file"] {
+    padding: 0;
+}
+
+.image-preview {
+    margin-top: 10px;
+    max-width: 100%; /* Ensure the image fits within the container */
+    height: auto; /* Maintain aspect ratio */
 }

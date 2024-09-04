@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { loginUser, logOutUser, refreshAccessToken, registerUser, addCertification, removeCertification, getCertifications } from "../controllers/freelancer.controller.js";
+import { loginUser, logOutUser, refreshAccessToken, registerUser, addCertification, removeCertification, getCertifications, addProject, getProjects, getUserDetails } from "../controllers/freelancer.controller.js";
 import { upload } from "../middlewares/multer.middleware.js";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
 
@@ -39,5 +39,15 @@ router.route("/certifications").post(
 
 router.route("/certifications/:certificationId").delete(verifyJWT, removeCertification);
 
+router.route("/projects").post(
+    verifyJWT, 
+    upload.fields([
+        { name: "images", maxCount: 1 }
+    ]), 
+    addProject
+)
+.get(verifyJWT, getProjects);
+
+router.route("/me").get(verifyJWT, getUserDetails);
 
 export default router;
