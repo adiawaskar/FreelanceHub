@@ -5,7 +5,6 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 import jwt from "jsonwebtoken";
 import { JobPosting } from "../models/jobposting.model.js";
 
-// Controller to post a job
 export const postJob = asyncHandler(async (req, res, next) => {
     try {
         const {
@@ -17,11 +16,15 @@ export const postJob = asyncHandler(async (req, res, next) => {
             job_skills_required,
             pay_rate,
             location,
-            requirements
+            requirements,
+            last_date_to_apply
         } = req.body;
 
+        // Log the received data for debugging
+        console.log('Received data:', req.body);
+
         // Validate input
-        if (!company_name || !job_title || !job_description || !job_status || !job_visibility || !job_skills_required || !pay_rate || !location || !requirements) {
+        if (!company_name || !job_title || !job_description || !job_status || !job_visibility || !job_skills_required || !pay_rate || !location || !requirements || !last_date_to_apply) {
             return next(new ApiError(400, "All fields are required."));
         }
 
@@ -35,16 +38,23 @@ export const postJob = asyncHandler(async (req, res, next) => {
             job_skills_required,
             pay_rate,
             location,
-            requirements
+            requirements,
+            last_date_to_apply
         });
 
         // Send success response
         return res.status(201).json(new ApiResponse(201, jobPosting, "Job posted successfully."));
     } catch (error) {
+        // Log detailed error message and stack trace
+        console.error('Error posting job:', error.message);
+        console.error('Error stack trace:', error.stack);
+
         // Handle unexpected errors
         next(new ApiError(500, "An error occurred while posting the job.", [error.message]));
     }
 });
+
+
 
 
 
