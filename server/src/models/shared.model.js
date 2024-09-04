@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 export const AttachmentSchema = new Schema({
-  file_name: { type: String, required: true },
+  // file_name: { type: String, required: true },
   file_url: { type: String, required: true }  // URL from Cloudinary
 });
 

@@ -25,6 +25,7 @@ const generateAccessAndRefreshToken = async (userId) => {
 const registerUser = asyncHandler( async (req, res) => {
 
     const {name, email, password, phone} = req.body;
+
     console.log("email: ", email);
     console.log("Name: ", name);
     
@@ -72,6 +73,7 @@ const registerUser = asyncHandler( async (req, res) => {
     const profilePic = await uploadToCloudinary(profilePicLocalPath);
     const resume = await uploadToCloudinary(resumePath);
 
+    console.log(profilePicLocalPath)
     const user = await Freelancer.create({
         name,
         email,
@@ -97,6 +99,8 @@ const registerUser = asyncHandler( async (req, res) => {
     )
     
 })
+
+
 
 const loginUser = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
@@ -293,3 +297,4 @@ export {
     removeCertification, 
     getCertifications 
 };
+
