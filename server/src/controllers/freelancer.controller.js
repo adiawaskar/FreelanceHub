@@ -306,7 +306,7 @@ const addProject = asyncHandler(async (req, res) => {
         project_name,
         project_description,
         project_url: project_url || null,
-        images: imagePath ? [imagePath] : [] // Only one image allowed
+        images: imagePath ? [imagePath] : []
     };
 
     const freelancer = await Freelancer.findById(freelancerId);
@@ -333,6 +333,18 @@ const getProjects = asyncHandler(async (req, res) => {
     return res.status(200).json(new ApiResponse(200, freelancer.portfolio, "Projects retrieved successfully"));
 });
 
+const getUserDetails = asyncHandler(async (req, res) => {
+    const freelancerId = req.user._id;
+
+    const freelancer = await Freelancer.findById(freelancerId).select("-password -refreshToken");
+
+    if (!freelancer) {
+        throw new ApiError(404, "Freelancer not found");
+    }
+
+    return res.status(200).json(new ApiResponse(200, freelancer, "Freelancer details retrieved successfully"));
+});
+
 
 export { 
     registerUser, 
@@ -343,6 +355,7 @@ export {
     removeCertification, 
     getCertifications,
     addProject,
-    getProjects
+    getProjects,
+    getUserDetails
 };
 
