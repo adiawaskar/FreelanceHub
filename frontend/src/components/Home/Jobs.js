@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import JobPosting from "./JobEntry";
-import test from "../logo.png";
+import test from "./logo.png";
 import jobPostings from "./jobPostings";
 import Navbar from './Navbar';
 // import JobPostingForm from "./job-posting/JobPostingForm";
