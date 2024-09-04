@@ -1,9 +1,9 @@
 import brcypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import mongoose from 'mongoose';
-import { AttachmentSchema, ProposalSchema } from './sharedSchemas.js';
+import { AttachmentSchema, ProposalSchema } from './shared.model.js';
 
-const Schema = mongoose;
+const {Schema} = mongoose;
 
 const CertificationSchema = new Schema({
   certification_name: { type: String, required: true },

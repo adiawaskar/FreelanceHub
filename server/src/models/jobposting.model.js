@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import { ProposalSchema } from './sharedSchemas.js';
 
-const Schema  = mongoose;
+const {Schema}  = mongoose;
 
 const JobPostingSchema = new Schema({
   job_title: { type: String, required: true },
