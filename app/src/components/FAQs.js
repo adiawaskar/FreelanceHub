@@ -4,31 +4,31 @@ import './FAQs.css';
 const faqData = [
   {
     question: "Will freelancers be committed to my business's NDA?",
-    answer: "",
+    answer: "Yes, all freelancers on FreelanceHub are required to sign and adhere to Non-Disclosure Agreements (NDAs) when working with clients. This ensures that your business's confidential information is protected throughout the project.",
   },
   {
     question: "How do I know that a freelancer is qualified to complete my project?",
-    answer: "On Fiverr Pro, our industry experts evaluate every freelancer before they are accepted and continue to hold them to the highest standards during their activity on Fiverr Pro. You can expect vast experience, creativity, top communication and customer service skills, and the flexibility to take on long-term engagements.",
+    answer: "On FreelanceHub, our industry experts evaluate every freelancer before they are accepted and continue to hold them to the highest standards during their activity on FreelanceHub. You can expect vast experience, creativity, top communication and customer service skills, and the flexibility to take on long-term engagements.",
   },
   {
     question: "What if I didn't find the exact service that suits my project needs?",
-    answer: "",
+    answer: "If you don't find the exact service you're looking for, you can reach out to our support team. They can help you find a freelancer with the specific skills you need or recommend similar services that might suit your project requirements.",
   },
   {
-    question: "How does Fiverr protect us in the order process?",
-    answer: "",
+    question: "How does FreelanceHub protect us in the order process?",
+    answer: "FreelanceHub ensures your protection through secure payment systems, milestone-based project management, and clear communication channels. If any issues arise during the order process, our dispute resolution team is here to assist you.",
   },
   {
     question: "How do I see a freelancer's hourly rate?",
-    answer: "",
+    answer: "You can view a freelancer's hourly rate on their profile page, which also includes their portfolio, client reviews, and skillset. Additionally, rates are typically displayed when you search for services.",
   },
   {
-    question: "How many team members can join my Fiverr Pro account?",
-    answer: "",
+    question: "How many team members can join my FreelanceHub  account?",
+    answer: "Your FreelanceHub account can accommodate multiple team members, allowing you to collaborate efficiently on projects. The exact number of team members you can add depends on your subscription plan.",
   },
   {
-    question: "How do I become a Fiverr Pro freelancer?",
-    answer: "",
+    question: "How do I become a FreelanceHub freelancer?",
+    answer: "To become a freelancer on FreelanceHub, you need to apply through our platform. Your application will be reviewed by our industry experts, and if you meet our quality standards, you will be accepted to offer your services on our platform.",
   },
 ];
 
