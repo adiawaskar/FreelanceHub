@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const Schema = mongoose;
+const { Schema } = mongoose;
 
 export const AttachmentSchema = new Schema({
   file_name: { type: String, required: true },

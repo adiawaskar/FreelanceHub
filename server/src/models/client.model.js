@@ -2,7 +2,7 @@ import brcypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import mongoose from 'mongoose';
 
-const Schema = mongoose;
+const {Schema} = mongoose;
 
 const clientSchema = new Schema({
   company_name: { type: String, required: true },
