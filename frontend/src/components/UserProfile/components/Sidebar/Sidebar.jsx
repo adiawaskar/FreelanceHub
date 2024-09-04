@@ -43,14 +43,14 @@ const Sidebar = ({ activeItem, setActiveItem }) => {
           <BiBookOpen className="icon" />
           Certifications
         </a>
-        {/* <a
+        <a
           href="#"
-          className={`item ${activeItem === 'Proposal' ? 'activ' : ''}`}
-          onClick={() => setActiveItem('Proposal')}
+          className={`item ${activeItem === 'Proposals' ? 'activ' : ''}`}
+          onClick={() => setActiveItem('Proposals')}
         >
           <BiStats className="icon" />
           Proposal
-        </a> */}
+        </a>
         <a
           href="#"
           className={`item ${activeItem === 'Projects' ? 'activ' : ''}`}
