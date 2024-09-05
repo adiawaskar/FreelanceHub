@@ -214,6 +214,8 @@ import test from "./logo.png";
 import Navbar from "./Navbar";
 
 function Jobs() {
+  
+
   const [jobPostings, setJobPostings] = useState([]);
 
   useEffect(() => {
