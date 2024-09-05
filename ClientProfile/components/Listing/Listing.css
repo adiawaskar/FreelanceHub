@@ -1,0 +1,45 @@
+.gig-list-container {
+    width: 80%;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.gig-list-container h1 {
+    margin-top: 20px;
+    font-size: 2rem;
+    color: #333;
+}
+
+.gig-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.gig-card {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 25%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.gig-card:hover {
+    transform: translateY(-5px);
+}
+
+.gig-card h2 {
+    font-size: 1.5rem;
+    color: #00796b;
+    margin-bottom: 10px;
+}
+
+.gig-card p {
+    margin: 10px 0;
+    font-size: 1rem;
+    color: #333;
+}
