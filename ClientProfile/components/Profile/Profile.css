@@ -1,0 +1,53 @@
+.profile {
+    flex: 1;
+}
+
+.user--profile {
+    height: 85%;
+    margin-top: 2rem;
+    background: #0c055c;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user--detail {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.user--detail img {
+    background: #fff;
+    border-radius: 50%;
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.username {
+    color: #ffffff;
+}
+
+.profession {
+    color: #ffffff;
+}
+
+.add-job-button {
+    background-color: #dde6ed;
+    color: #0c055c;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.add-job-button:hover {
+    background-color: #c0d4de;
+}
