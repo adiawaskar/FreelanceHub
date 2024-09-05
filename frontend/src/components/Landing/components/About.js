@@ -12,6 +12,9 @@ const About = () => {
           <p>
             FreelanceHub connects businesses with freelancers, offering a seamless experience for finding talent or jobs in any field.
           </p>
+          <p> 
+          Work with the largest network of independent professionals and get things done—from quick turnarounds to big transformations. Get Started
+          </p>
         </div>
       </div>
     </section>
