@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ProfileHeader from '../ProfileHeader/ProfileHeader';
 import './Profile.css';
 import { BiBook } from 'react-icons/bi';
+import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
   const [userDetails, setUserDetails] = useState({
@@ -9,6 +10,24 @@ const Profile = () => {
     name: '',
     skills: [],
   });
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await fetch('http://localhost:8000/logout', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      // Redirect to the login page after successful logout
+      navigate('/login');
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
+  };
 
   useEffect(() => {
     const fetchUserDetails = async () => {
@@ -61,7 +80,7 @@ const Profile = () => {
 
         {/* Logout Button */}
         <div className="logout-container">
-          <button className="logout-button">Logout</button>
+          <button onClick={handleLogout} className="logout-button">Logout</button>
         </div>
       </div>
     </div>
