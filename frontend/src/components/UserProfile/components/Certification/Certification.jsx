@@ -109,15 +109,14 @@ const Certification = () => {
   const fetchCertifications = async () => {
     try {
       const response = await fetch('http://localhost:8000/api/v1/freelancers/certifications', {
-        credentials: 'include', // Include cookies with the request
+        credentials: 'include',
       });
       const data = await response.json();
-      setCertificates(data.data); // Assuming `data` contains the certifications
+      setCertificates(data.data);
     } catch (error) {
       console.error('Error fetching certifications:', error);
     }
   };
-  
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -134,30 +133,29 @@ const Certification = () => {
     for (const [key, value] of Object.entries(newCert)) {
       formData.append(key, value);
     }
-  
+
     try {
       await fetch('http://localhost:8000/api/v1/freelancers/certifications', {
         method: 'POST',
         body: formData,
-        credentials: 'include', // Include cookies with the request
+        credentials: 'include',
       });
-      setShowForm(false); // Hide the form after successful submission
-      fetchCertifications(); // Refresh the certificates after adding a new one
+      setShowForm(false);
+      fetchCertifications();
     } catch (error) {
       console.error('Error adding certification:', error);
     }
   };
-  
 
   const handleDelete = async (certificationId) => {
     try {
-      await fetch(`/api/certifications/${certificationId}`, { // Adjust the endpoint if needed
+      await fetch(`/api/certifications/${certificationId}`, {
         method: 'DELETE',
         headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`, // Add token if required
+          'Authorization': `Bearer ${localStorage.getItem('token')}`,
         },
       });
-      fetchCertifications(); // Refresh the certifications after deletion
+      fetchCertifications();
     } catch (error) {
       console.error('Error deleting certification:', error);
     }
@@ -166,53 +164,55 @@ const Certification = () => {
   return (
     <div className="certification-container">
       <h1 className="certification-header">Certifications</h1>
-      <button onClick={() => setShowForm(prev => !prev)} className="certification-toggle-button">
-        {showForm ? 'Cancel' : 'Add Certification'}
-      </button>
 
       {showForm && (
-        <form onSubmit={handleSubmit} className="certification-form">
-          <input 
-            type="text" 
-            name="certification_name" 
-            placeholder="Certification Name" 
-            onChange={handleChange} 
-            required 
-            className="certification-input"
-          />
-          <input 
-            type="text" 
-            name="certification_institution" 
-            placeholder="Institution" 
-            onChange={handleChange} 
-            required 
-            className="certification-input"
-          />
-          <input 
-            type="date" 
-            name="issue_date" 
-            placeholder="Issue Date" 
-            onChange={handleChange} 
-            required 
-            className="certification-input"
-          />
-          <input 
-            type="date" 
-            name="expiration_date" 
-            placeholder="Expiration Date" 
-            onChange={handleChange} 
-            required 
-            className="certification-input"
-          />
-          <input 
-            type="file" 
-            name="certificate_url" 
-            onChange={handleChange} 
-            required 
-            className="certification-file-input"
-          />
-          <button type="submit" className="certification-submit-button">Add Certification</button>
-        </form>
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <button className="modal-close" onClick={() => setShowForm(false)}>×</button>
+            <form onSubmit={handleSubmit} className="certification-form">
+              <input
+                type="text"
+                name="certification_name"
+                placeholder="Certification Name"
+                onChange={handleChange}
+                required
+                className="certification-input"
+              />
+              <input
+                type="text"
+                name="certification_institution"
+                placeholder="Institution"
+                onChange={handleChange}
+                required
+                className="certification-input"
+              />
+              <input
+                type="date"
+                name="issue_date"
+                placeholder="Issue Date"
+                onChange={handleChange}
+                required
+                className="certification-input"
+              />
+              <input
+                type="date"
+                name="expiration_date"
+                placeholder="Expiration Date"
+                onChange={handleChange}
+                required
+                className="certification-input"
+              />
+              <input
+                type="file"
+                name="certificate_url"
+                onChange={handleChange}
+                required
+                className="certification-file-input"
+              />
+              <button type="submit" className="certification-submit-button">Add Certification</button>
+            </form>
+          </div>
+        </div>
       )}
 
       {certificates.length === 0 ? (
@@ -220,10 +220,12 @@ const Certification = () => {
       ) : (
         <CertificateCard certifications={certificates} onDelete={handleDelete} />
       )}
+      <button onClick={() => setShowForm(prev => !prev)} className="certification-toggle-button">
+        {showForm ? 'Cancel' : 'Add Certification'}
+      </button>
     </div>
   );
 };
 
 export default Certification;
-
 

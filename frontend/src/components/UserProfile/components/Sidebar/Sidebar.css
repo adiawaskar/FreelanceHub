@@ -44,3 +44,10 @@
     background: #ffffff;
     color: #0c055c !important;
 }
+
+
+.back-icon {
+    font-size: 24px;
+    margin-right: 10px;
+    cursor: pointer;
+  }

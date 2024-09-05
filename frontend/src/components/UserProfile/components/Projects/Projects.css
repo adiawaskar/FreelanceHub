@@ -1,93 +1,52 @@
+/* Container for project content */
 .projects--content {
     width: 75%;
 }
 
+/* Header for the project section */
 .projects--header {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
+/* Title of the project section */
 .projects--title {
     color: #0c055c;
 }
 
-.project-image {
-    width: 100%;               /* Make image take full width of container */
-    height: auto;              /* Maintain aspect ratio */
-    max-height: 200px;          /* Prevent the image from getting too tall */
-    object-fit: cover;          /* Crop to fit within the container */
-    border-radius: 12px;        /* Add rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    transition: transform 0.2s ease-in-out;   /* Smooth transition effect */
-}
-
-.project-image:hover {
-    transform: scale(1.05);     /* Slight zoom-in effect on hover */
-}
-
-
-.projects--activity {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-left: auto;
-}
-
-.projects--search-box {
-    background: #dde6ed;
-    padding: 8px 10px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-}
-
-.projects--search-box input {
-    border: none;
-    outline: none;
-    background: transparent;
-    padding: 5px;
-}
-
-.projects--search-icon {
-    color: #0c055c;
-    font-size: 22px;
-    cursor: pointer;
-    transition: 0.5s ease-in-out;
-}
-
-
-.projects--icon:hover {
-    transform: scale(1.3);
-    cursor: pointer;
-}
-
-
-.projects--container{
+/* Container for project cards */
+.projects--container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     margin-top: 2rem;
+    padding: 10px;
 }
 
+/* Project card styling */
 .projects--card {
     background: #0c055c;
     padding: 20px;
     border-radius: 10px;
     display: flex;
-    align-items: center;
     flex-direction: column;
-    gap: 20px;
+    align-items: center;
+    gap: 10px;
     transition: 0.5s ease-in-out;
+    height: 400px; /* Fixed height for uniform card sizes */
+    overflow: hidden; /* Prevent overflow */
+    position: relative; /* For positioning of the image */
 }
 
-.projects--card:hover{
+/* Hover effect for project cards */
+.projects--card:hover {
     transform: scale(1.04);
     cursor: pointer;
 }
 
-.projects--card-cover{
+/* Cover element in the project card */
+.projects--card-cover {
     background: #dbdae9;
     display: flex;
     align-items: center;
@@ -98,16 +57,19 @@
     color: #969393;
 }
 
-.projects--card-title{
+/* Title inside the project card */
+.projects--card-title {
     background: #ffffffc0;
     width: 100%;
     text-align: center;
-    padding: 10px 0;
     border-radius: 10px;
     color: #0c055c;
     font-size: 14px;
+    margin-bottom: 16px;
+
 }
 
+/* Description inside the project card */
 .projects--card-description {
     padding: 10px;
     font-size: 14px;
@@ -116,6 +78,7 @@
     text-align: left; /* Align text to the left */
 }
 
+/* Tech stack list inside the project card */
 .projects--card-techstack {
     list-style-type: none;
     padding: 5px 5px;
@@ -125,6 +88,7 @@
     gap: 10px; /* Adjust spacing between items */
 }
 
+/* Tech stack list items */
 .projects--card-techstack li {
     background: #1a1a1a;
     padding: 5px;
@@ -133,6 +97,20 @@
     display: inline; /* Display items inline within the flex container */
 }
 
+/* Image styling inside project cards */
+.project-image {
+    width: 100%;               /* Make image take full width of container */
+    height: 200px;             /* Fixed height to maintain equal card size */
+    object-fit: cover;         /* Crop to fit within the container */
+    border-radius: 12px;       /* Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.2s ease-in-out;   /* Smooth transition effect */
+}
+
+/* Hover effect for project images */
+.project-image:hover {
+    transform: scale(1.05);    /* Slight zoom-in effect on hover */
+}
 
 /* Blurred background when modal is active */
 .blur-background {
@@ -140,7 +118,7 @@
     transition: filter 0.3s ease-in-out;
 }
 
-/* Modal overlay */
+/* Modal overlay styling */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -154,7 +132,7 @@
     z-index: 999; /* Ensure it overlays the entire page */
 }
 
-/* Modal content (the form) */
+/* Modal content (the form) styling */
 .modal-content {
     background-color: white;
     padding: 30px;
@@ -177,21 +155,21 @@
     color: #333;
 }
 
-/* Form header */
+/* Form header styling */
 .add-project-form h2 {
     text-align: center;
     margin-bottom: 20px;
     color: #333;
 }
 
-/* Form group styles */
+/* Form group styling */
 .form-group {
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
 }
 
-/* Form labels */
+/* Form labels styling */
 .form-group label {
     font-size: 14px;
     margin-bottom: 5px;
@@ -199,7 +177,7 @@
     color: #555;
 }
 
-/* Form inputs and textarea */
+/* Form inputs and textarea styling */
 .form-group input[type="text"],
 .form-group textarea,
 .form-group input[type="file"] {
@@ -211,12 +189,13 @@
     box-sizing: border-box;
 }
 
+/* Textarea specific styling */
 .form-group textarea {
     resize: vertical;
     height: 100px;
 }
 
-/* Submit button */
+/* Submit button styling */
 .add-project-button {
     background-color: #28a745;
     color: white;
@@ -231,10 +210,12 @@
     margin-top: 10px;
 }
 
+/* Hover effect for the submit button */
 .add-project-button:hover {
     background-color: #218838;
 }
 
+/* Focus effect for the submit button */
 .add-project-button:focus {
     outline: none;
 }
@@ -244,6 +225,7 @@
     padding: 0;
 }
 
+/* Image preview styling */
 .image-preview {
     margin-top: 10px;
     max-width: 100%; /* Ensure the image fits within the container */

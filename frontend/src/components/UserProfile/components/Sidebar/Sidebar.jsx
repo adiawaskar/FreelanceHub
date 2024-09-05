@@ -1,11 +1,19 @@
 import React from 'react';
-import { BiHome, BiBookAlt, BiBookOpen, BiSolidReport, BiStats, BiTask, BiFolder } from 'react-icons/bi';
+import { BiHome, BiBookAlt, BiBookOpen, BiSolidReport, BiStats, BiTask, BiFolder, BiArrowBack } from 'react-icons/bi';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './Sidebar.css';
 
 const Sidebar = ({ activeItem, setActiveItem }) => {
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  const handleHomeNavigation = () => {
+    navigate('/home'); // Navigate to the home page
+  };
+
   return (
     <div className='menu'>
       <div className="sidebarLogo">
+        <BiArrowBack className="back-icon" onClick={handleHomeNavigation} />
         {/* <BiBookAlt className="sidebarLogo-icon" />
         <h2>FreeLanceHub</h2> */}
       </div>
@@ -65,3 +73,4 @@ const Sidebar = ({ activeItem, setActiveItem }) => {
 };
 
 export default Sidebar;
+
