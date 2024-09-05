@@ -14,27 +14,15 @@ const Sidebar = () => {
       <div className="menu--list">
         <Link to="/" className="item active">
           <BiHome className="icon" />
-          DashBoard
+          Information
         </Link>
         <Link to="/portfolio" className="item">
           <BiTask className="icon" />
-          Portfolio
-        </Link>
-        <Link to="/contract" className="item">
-          <BiSolidReport className="icon" />
-          Contract
-        </Link>
-        <Link to="/certifications" className="item">
-          <BiBookOpen className="icon" />
-          Certifications
+          Your listings
         </Link>
         <Link to="/proposal" className="item">
           <BiStats className="icon" />
-          Proposal
-        </Link>
-        <Link to="/projects" className="item">
-          <BiFolder className="icon" />
-          Projects
+          Applications
         </Link>
       </div>
     </div>
