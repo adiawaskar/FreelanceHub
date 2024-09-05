@@ -337,11 +337,12 @@ const getUserDetails = asyncHandler(async (req, res) => {
     const freelancerId = req.user._id;
 
     const freelancer = await Freelancer.findById(freelancerId).select("-password -refreshToken");
-
+    
     if (!freelancer) {
         throw new ApiError(404, "Freelancer not found");
     }
-
+    console.log(freelancer);
+    
     return res.status(200).json(new ApiResponse(200, freelancer, "Freelancer details retrieved successfully"));
 });
 
