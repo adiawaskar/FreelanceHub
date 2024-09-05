@@ -6,6 +6,7 @@ import Profile from './components/Profile/Profile';
 // import PortfolioPage from './components/Portfolio/Portfolio';
 import Projects from './components/Projects/Projects'; 
 // import Certifications from './components/Certifications/Certificatlions'
+import Listing from './components/Listing/Listing';
 
 import './App.css';
 
@@ -19,6 +20,7 @@ function App() {
             <Route path="/" element={<Content />} />
         
             <Route path="/projects" element={<Projects />} /> 
+            <Route path="/listing" element={<Listing />} /> 
           
             
           </Routes>
