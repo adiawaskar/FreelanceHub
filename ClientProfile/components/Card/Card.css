@@ -1,0 +1,114 @@
+.portfolio-container {
+    width: 80%;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+.portfolio-header {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.basic-details-section {
+    margin-top: 30px;
+}
+
+.basic-details-section h2 {
+    margin-bottom: 10px;
+}
+
+.basic-details p {
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+.stats-section {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.skills-section,
+.education-section,
+.portfolio-section {
+    margin-top: 30px;
+}
+
+.skillsList,
+.education-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.skillsList li,
+.education-list li {
+    background-color: #f4f4f4;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+/* Profile Statistics Section */
+.profile-statistics-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.profile-statistics-section h2 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.profile-views {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #e0f7fa;
+    border: 1px solid #b2ebf2;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.profile-views:hover {
+    transform: translateY(-5px);
+}
+
+.profile-views h3 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: #00796b;
+}
+
+.profile-views p {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #004d40;
+    margin: 0;
+}
+
+.profile-views i {
+    font-size: 1.5em;
+    color: #00796b;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Domain Work Graph */
+.domain-work-graph {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.domain-work-graph h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.domain-work-graph canvas {
+    width: 100% !important;
+    height: auto !important;
+}
