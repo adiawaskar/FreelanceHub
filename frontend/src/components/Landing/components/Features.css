@@ -1,0 +1,65 @@
+.features-section {
+    text-align: center;
+    padding: 50px 20px;
+  }
+  
+  .features-heading{
+    text-align: center;
+    padding: 50px 20px;
+    font-size: xx-large;
+
+  }
+  
+  .features-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap; /* Prevent wrapping to the next line */
+    margin-top: 30px;
+  }
+  
+  .feature-card {
+    text-align: center;
+    background-color: #f9f9f9;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    padding: 20px;
+    width: 23%; /* Adjusted to fit four cards in a row */
+    margin: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feature-card .icon {
+    font-size: 2em;
+    margin-bottom: 15px;
+  }
+  
+  .feature-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .feature-card p {
+    font-size: 1em;
+    color: #666;
+  }
+  
+  .cta-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 40px;
+  }
+  
+  .cta-button:hover {
+    background-color: #0056b3;
+  }
+  

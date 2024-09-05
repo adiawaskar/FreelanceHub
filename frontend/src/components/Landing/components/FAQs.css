@@ -4,22 +4,22 @@
     padding: 20px;
     font-family: Arial, sans-serif;
     /* Changed font */
-}
-
-h2 {
+  }
+  
+  h2 {
     font-size: 2em;
     margin-bottom: 20px;
     font-weight: normal;
     /* Removed boldness */
-}
-
-.faq-item {
+  }
+  
+  .faq-item {
     margin-bottom: 20px;
     border-bottom: 1px solid #e1e1e1;
     padding-bottom: 10px;
-}
-
-.faq-question {
+  }
+  
+  .faq-question {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -27,18 +27,17 @@ h2 {
     font-size: 1.2em;
     font-weight: normal;
     /* Removed boldness */
-}
-
-.faq-icon {
+  }
+  
+  .faq-icon {
     font-size: 1.5em;
     transform: rotate(90deg);
-    /* Rotates the simple arrow to point sideways */
-}
-
-.faq-answer {
+  }
+  
+  .faq-answer {
     margin-top: 10px;
     font-size: 1em;
+    text-align: left;
     color: #555;
     font-weight: normal;
-    /* Removed boldness */
-}
+  }
