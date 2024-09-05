@@ -16,7 +16,7 @@ const Sidebar = () => {
           <BiHome className="icon" />
           Information
         </Link>
-        <Link to="/portfolio" className="item">
+        <Link to="/listing" className="item">
           <BiTask className="icon" />
           Your listings
         </Link>
@@ -30,3 +30,4 @@ const Sidebar = () => {
 }
 
 export default Sidebar;
+
