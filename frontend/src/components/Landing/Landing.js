@@ -5,6 +5,8 @@ import About from "./components/About";
 import Testimonial from "./components/Testimonial";
 import FAQs from "./components/FAQs";
 import Footer from "./components/Footer";
+import Features from "./components/Features";
+import Gallery from "./components/gallery";
 import './Landing.css';
 function Landing(){
 
@@ -15,6 +17,8 @@ return(
         <Header />
         <HeroSection />
         <About />
+        <Features/>
+        <Gallery/>
         <Testimonial/>
         <FAQs/>
         <Footer />

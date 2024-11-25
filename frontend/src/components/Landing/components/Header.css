@@ -1,5 +1,5 @@
 .header {
-    background-color: #ffffff;
+    background-color: rgb(23 37 84);
     padding: 10px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: fixed;
@@ -28,6 +28,7 @@
     display: flex;
     margin: 0;
     padding: 0;
+    
 }
 
 .nav-links li {
@@ -36,7 +37,7 @@
 
 .nav-links a {
     text-decoration: none;
-    color: #333;
+    color: #ffffff;
     font-size: 1rem;
     font-weight: 500;
     transition: color 0.3s, border-bottom 0.3s;
